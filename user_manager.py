@@ -35,9 +35,9 @@ class user:
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(user,))
         data = mycursor.fetchall()
         if len(data)==0:
-            return {"Status" : False}
+            return  False
         else:
-            return {"Status" : True}
+            return  True
 
-
+ 
 
