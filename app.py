@@ -12,7 +12,13 @@ class mk_user(Resource):
         status = user.add_user(Username,Password)
         return status
 
+class validate_user(Resource):
+    def get(self,Username,Password):
+        status = user.check_user(Username,Password)
+        return status
+
 api.add_resource(mk_user,"/mk_user/<string:Username>/<string:Password>")
+api.add_resource(validate_user,"/validate_user/<string:Username>/<string:Password>")
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run( host="10.0.0.98", port=5000 ,debug=True,)
