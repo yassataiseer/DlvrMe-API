@@ -16,25 +16,28 @@ class user:
     def add_user(username,password):
         boolean = user.check_if_user_exists(username)
         if boolean == True:
-            return False
+            return {"Status" : False}
         mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(username,password))
         db.commit()
-        return True
+        return {"Status" : True}
+
 
     def check_user(user,password):
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) AND Password = (%s) ",(user,password))
         data = mycursor.fetchall()
         if len(data)==0:
-            return False
+            return {"Status" : False}
         else:
-            return True
+            return {"Status" : True}
+
         
     def check_if_user_exists(user):
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(user,))
         data = mycursor.fetchall()
         if len(data)==0:
-            return False
+            return {"Status" : False}
         else:
-            return True
+            return {"Status" : True}
+
 
 
