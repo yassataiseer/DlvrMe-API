@@ -26,9 +26,9 @@ class order:
         a = data['features'][0]['geometry']['coordinates']
         lat = a[-1]
         lon = a[0]
-        mycursor.execute("INSERT INTO deliveries (Username,Address,latitude,longitude,Item,Price,User_Info) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Username,Address,lat,lon,Item,Price,User_Info))
+        mycursor.execute("INSERT INTO deliveries (Username,Address,Latitude,longitude,Item,Price,User_Info) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Username,Address,lat,lon,Item,Price,User_Info))
         db.commit()
-        return True
+        return {"Status":True}
     def edit_order(Username,Address,Item,Price,User_Info):
         pass
     def get_order():
@@ -40,11 +40,16 @@ class order:
             data.append(i)
         return data
     def get_order_specific_person(username):
+        data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
         mycursor.execute("SELECT * FROM deliveries WHERE Username = %s",(username,))
-        data = mycursor.fetchall()
-        return data
+        data1 = mycursor.fetchall()
+        final = []
+        for i in data1:
+            data2 = dict(zip(data,i))
+            final.append(data2)
+        return final
 
 #print(order.get_order())
-#print(order.get_order_specific_person('Eshal Taiseer'))
+#print(order.get_order_specific_person('Yassa Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))

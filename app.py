@@ -21,4 +21,4 @@ api.add_resource(mk_user,"/mk_user/<string:Username>/<string:Password>")
 api.add_resource(validate_user,"/validate_user/<string:Username>/<string:Password>")
 
 if __name__ == "__main__":
-	app.run( host="10.0.0.52", port=5000 ,debug=True)
+	app.run( host="10.0.0.53", port=5000 ,debug=True)
