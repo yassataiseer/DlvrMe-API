@@ -22,11 +22,14 @@ class mk_order(Resource):
     def get(self,Username,Address,Item,Price,User_Info):
         status = order.add_order(Username,Address,Item,Price,User_Info)
         return status
-
+class del_order(Resource):
+    def get(self,Username,Address,Item,Price,User_Info):
+        status = order.delete_order(Username,Address,Item,Price,User_Info)
+        return status
 api.add_resource(mk_user,"/mk_user/<string:Username>/<string:Password>")
 api.add_resource(validate_user,"/validate_user/<string:Username>/<string:Password>")
 api.add_resource(mk_order,"/mk_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
-
+api.add_resource(del_order,"/del_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
 
 if __name__ == "__main__":
 	app.run( host="10.0.0.53", port=5000 ,debug=True)
