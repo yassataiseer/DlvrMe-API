@@ -50,7 +50,7 @@ class order:
             final.append(data2)
         return final
 
-#print(order.get_order())
-#print(order.get_order_specific_person('Yassa Taiseer'))
+#print(order.delete_order('Esahl Taiseer', '452 Savoline Blvd Milton',  'Box', '15.5', 'I need this delivered asap'))
+#print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
 #=print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
