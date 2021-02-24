@@ -16,7 +16,7 @@ class order:
     def delete_order(Username,Address,Item,Price,User_Info):
         mycursor.execute("DELETE FROM deliveries WHERE Username = %s AND Address = %s AND Item = %s AND Price = %s AND User_Info = %s",(Username,Address,Item,Price,User_Info))
         db.commit()
-        return True
+        return {"Status":True}
     def add_order(Username,Address,Item,Price,User_Info):
         url = 'http://photon.komoot.de/api/?q='
         mycursor.execute('SELECT * FROM deliveries')
@@ -32,13 +32,14 @@ class order:
     def edit_order(Username,Address,Item,Price,User_Info):
         pass
     def get_order():
+        data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
         mycursor.execute('SELECT * FROM deliveries')
-        data = []
+        data1 = []
         a = mycursor.fetchall()
         for i in a:
-            i = list(i)
-            data.append(i)
-        return data
+            i = dict(zip(data,i))
+            data1.append(i)
+        return data1
     def get_order_specific_person(username):
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
         mycursor.execute("SELECT * FROM deliveries WHERE Username = %s",(username,))
