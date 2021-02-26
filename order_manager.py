@@ -14,7 +14,8 @@ mycursor = db.cursor()
 
 class order:
     def delete_order(Username,Address,Item,Price,User_Info):
-        mycursor.execute("DELETE FROM deliveries WHERE Username = %s AND Address = %s AND Item = %s AND Price = %s AND User_Info = %s",(Username,Address,Item,Price,User_Info))
+        Price1 = float(Price)
+        mycursor.execute("DELETE FROM deliveries WHERE Username = %s AND Address = %s AND Item = %s AND Price = %s AND User_Info = %s",(Username,Address,Item,Price1,User_Info))
         db.commit()
         return {"Status":True}
     def add_order(Username,Address,Item,Price,User_Info):
@@ -50,7 +51,7 @@ class order:
             final.append(data2)
         return final
 
-#print(order.delete_order('Yassa Taiseer', '452 Savoline Blvd Milton Ontario', 'Box of cats', '69.99', 'the cats are black'))
+#print(order.delete_order("Yassa Taiseer", "452 Savoline Blvd Milton Ontario", "Box of cats", 69.99, "the cats are black"))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
