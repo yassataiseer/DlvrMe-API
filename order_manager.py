@@ -40,6 +40,7 @@ class order:
         for i in a:
             i = dict(zip(data,i))
             data1.append(i)
+
         return data1
     def get_order_specific_person(username):
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
@@ -51,7 +52,7 @@ class order:
             final.append(data2)
         return final
 
-#print(order.delete_order("Yassa Taiseer", "452 Savoline Blvd Milton Ontario", "Box of cats", 69.99, "the cats are black"))
+#print(order.delete_order('Yassa Taiseer', '1328 Whitney Terrace Milton Ontario','Case of food', '75.55', 'phone number 123331'))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))

@@ -41,4 +41,4 @@ api.add_resource(del_order,"/del_order/<string:Username>/<string:Address>/<strin
 api.add_resource(all_order,"/all_order")
 api.add_resource(spec_order,"/spec_order/<string:Username>")
 if __name__ == "__main__":
-	app.run(host='10.0.0.53', port=5000 ,debug=True)
+	app.run(host='10.0.0.54', port=5000 ,debug=True)
