@@ -9,10 +9,10 @@ db =mysql.connector.connect(
     passwd = "new_password",
     database = "dlvrme"
 )
-mycursor = db.cursor()
 
 
 class order:
+
     def delete_order(Username,Address,Item,Price,User_Info):
         Price1 = float(Price)
         mycursor.execute("DELETE FROM deliveries WHERE Username = %s AND Address = %s AND Item = %s AND Price = %s AND User_Info = %s",(Username,Address,Item,Price1,User_Info))
@@ -33,6 +33,7 @@ class order:
     def edit_order(Username,Address,Item,Price,User_Info):
         pass
     def get_order():
+        mycursor = db.cursor()
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
         mycursor.execute('SELECT * FROM deliveries')
         data1 = []
@@ -40,7 +41,7 @@ class order:
         for i in a:
             i = dict(zip(data,i))
             data1.append(i)
-
+        mycursor.close()
         return data1
     def get_order_specific_person(username):
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
