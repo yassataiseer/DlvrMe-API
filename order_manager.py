@@ -62,7 +62,7 @@ class order:
         mycursor.close()
         return final
 
-#print(order.delete_order('Yassa Taiseer', '1328 Whitney Terrace Milton Ontario','Case of food', '75.55', 'phone number 123331'))
+#print(order.delete_order('Yassa Taiseer', '1328fcacfjkcfjnkfjkfj Terrace Milton', 'Box', '15', 'I need this box delivered ASAP'))
 #print(order.get_order_specific_person('Eshal Taiseer'))
-#print(order.add_order("Yassa Taiseer","1328 Whitney Terrace Milton","Box",15,"I need this box delivered ASAP"))
+#print(order.add_order("Yassa Taiseer","1328fcacfjkcfjnkfjkfj cda cs x","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
