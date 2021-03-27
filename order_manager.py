@@ -70,9 +70,18 @@ class order:
             return  {"Status":False}
         else:
             return  {"Status":True}
+    def validate_address(address):
+        try:
+            url = 'http://photon.komoot.de/api/?q='
+            resp = requests.get(url=url+address)
+            data = json.loads(resp.text)
+            a = data['features'][0]['geometry']['coordinates']
+            return {"Status":True}
+        except IndexError:
+            return {"Status":False}
+    
 
-
-#print(order.grab_address('452 Savoline Blvd'))
+#print(order.validate_address("452 Savoline Blvd Milton Ontario"))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328fcacfjkcfjnkfjkfj cda cs x","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
