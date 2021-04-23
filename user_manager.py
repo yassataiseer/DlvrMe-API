@@ -1,6 +1,6 @@
 import mysql.connector
 import os
-
+from dotenv import load_dotenv
 from decouple import config
 
 
@@ -13,10 +13,10 @@ class user:
 
     def connect():
         db =mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "new_password",
-        database = "dlvrme")
+        host = config('HOST') ,
+        user = config('USERNAME') ,
+        passwd = config('PASSWORD'),
+        database = config('DATABASE'))
         return db 
     def add_user(self):
         db = user.connect()
