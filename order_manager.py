@@ -7,10 +7,10 @@ import requests, json
 class order:
     def connect():
         db =mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "new_password",
-        database = "dlvrme")
+        host = config('HOST') ,
+        user = config('USERNAME') ,
+        passwd = config('PASSWORD'),
+        database = config('DATABASE'))
         return db 
     def delete_order(Username,Address,Item,Price,User_Info):
         db = order.connect()
