@@ -50,7 +50,7 @@ class user:
         mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(self.username,))
         data = mycursor.fetchall()
         mycursor.close()
-        db.close
+        db.close()
         if len(data)==0:
             return  False
         else:
