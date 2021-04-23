@@ -21,7 +21,7 @@ class user:
     def add_user(self):
         db = user.connect()
         mycursor = db.cursor()
-        boolean = user.check_if_user_exists(self.username)
+        boolean = user.check_if_user_exists(self)
         if boolean == True:
             return {"Status" : False}
         mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(self.username,self.password))
@@ -56,6 +56,6 @@ class user:
         else:
             return  True
 
-boolean = user("Yassa Taiseer","yassa123")
-print(boolean.check_user())
+#boolean = user("Nareen Khan","Khan123")
+#print(boolean.add_user())
 
