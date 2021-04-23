@@ -18,13 +18,11 @@ Android Studio
 python3 app.py
 ```
 #### Windows(Rest-Api):
-```sh
+```
 python app.py
 ```
-###Flutter App:
--Open project and run in android studio
 
-### Building Database
+## Building Database
 DlvrMe runs on a MySQL databases
 There is a need for two tables Users and Deliveries
 
@@ -45,3 +43,12 @@ The user's table will look like this:
 | Item | VARCHAR |
 | Price | FLOAT |
 | User_info | VARCHAR |
+
+## Environment Variables
+In order for the database to move smoothly environment variables must be generated.
+
+
+
+
+
+
