@@ -46,7 +46,7 @@ The user's table will look like this:
 
 ## Environment Variables
 In order for the database to move smoothly environment variables must be generated.
-Generate a folder called ```sh .env ```
+Generate a folder called ``` sh .env ```
 After this fill out the fold with this data:
 ```.env
 HOST=YOUR_HOST
