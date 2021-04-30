@@ -2,14 +2,15 @@ import mysql.connector
 import os
 from dotenv import load_dotenv
 from decouple import config
+from hashlib import sha256
 
 
 
 
 class user:
     def __init__(self,username,password):
-        self.username = username
-        self.password = password
+        self.username =  username
+        self.password = sha256(password.encode('utf-8')).hexdigest()
 
     def connect():
         db =mysql.connector.connect(
@@ -56,6 +57,6 @@ class user:
         else:
             return  True
 
-#boolean = user("Nareen Khan","Khan123")
-#print(boolean.add_user())
+#boolean = user("Yassa Taiseer","yassa123")
+#print(boolean.check_user())
 
