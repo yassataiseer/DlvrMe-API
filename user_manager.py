@@ -33,6 +33,9 @@ class user:
     def delete_user(self):
         db = user.connect()
         mycursor = db.cursor()
+        boolean = user.check_user(self)
+        if boolean == {"Status" : False}:
+            return {"Status" : False}
         mycursor.execute("DELETE FROM User WHERE Username = %s ",(self.username,))
         mycursor.execute("DELETE FROM deliveries WHERE Username = %s",(self.username,))
         db.commit()
