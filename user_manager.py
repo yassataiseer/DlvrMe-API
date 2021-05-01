@@ -30,7 +30,14 @@ class user:
         mycursor.close()
         db.close()
         return {"Status" : True}
-
+    def delete_user(self):
+        db = user.connect()
+        mycursor = db.cursor()
+        mycursor.execute("DELETE FROM User WHERE Username = %s ",(self.username,))
+        db.commit()
+        mycursor.close()
+        db.close()
+        return {"Status": True}
 
     def check_user(self):
         db = user.connect()
@@ -57,6 +64,6 @@ class user:
         else:
             return  True
 
-#boolean = user("Yassa Taiseer","yassa123")
-#print(boolean.check_user())
+#boolean = user("Eshal Taiseer","Eshal123")
+#print(boolean.delete_user())
 
