@@ -1,6 +1,7 @@
 import mysql.connector
 import os
 import requests, json
+from decouple import config
 
 
 
@@ -94,4 +95,4 @@ class order:
 #print(order.validate_address("452 Savoline Blvd Milton Ontario"))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328fcacfjkcfjnkfjkfj cda cs x","Box",15,"I need this box delivered ASAP"))
-#print(order.add_order('Yassa Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
+#print(order.add_order('Eshal Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
