@@ -19,6 +19,12 @@ class validate_user(Resource):
         boolean = user(Username,Password)
         status = boolean.check_user()
         return jsonify(status)
+
+class delete_user(Resource):
+    def get(self,Username,Password):
+        boolean = user(Username,Password)
+        status = boolean.delete_user()
+        return jsonify(status)
 """Orders"""
 class mk_order(Resource):
     def get(self,Username,Address,Item,Price,User_Info):
@@ -46,6 +52,7 @@ class validate_address(Resource):
         return jsonify(status)
 api.add_resource(mk_user,"/mk_user/<string:Username>/<string:Password>")
 api.add_resource(validate_user,"/validate_user/<string:Username>/<string:Password>")
+api.add_resource(delete_user,"/delete_user/<string:Username>/<string:Password>")
 api.add_resource(mk_order,"/mk_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
 api.add_resource(del_order,"/del_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
 api.add_resource(all_order,"/all_order")
