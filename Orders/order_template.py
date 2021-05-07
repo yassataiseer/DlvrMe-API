@@ -1,6 +1,5 @@
 from flask import Flask, jsonify,Blueprint
 from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
-from user_manager import user
 from Orders.order_manager import order
 order_template = Blueprint("order_template",__name__)
 

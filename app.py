@@ -4,7 +4,7 @@ from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
 import os
 #from user_manager import user
 #from order_manager import order
-from user_template import user_template
+from Users.user_template import user_template
 from Orders.order_template import order_template
 app = Flask(__name__)
 api = Api(app)
