@@ -12,11 +12,11 @@ app.register_blueprint(user_template,url_prefix="/Users")
 app.register_blueprint(order_template,url_prefix="/Orders")
 
 
-@app.route("/")
-def error():
-    return abort(400)
 
 
+@app.errorhandler(404)
+def resource_not_found(e):
+    return jsonify(error=str(e)), 404
 
 if __name__ == "__main__":
 	app.run(port=5000 ,debug=True)
