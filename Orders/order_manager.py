@@ -1,5 +1,6 @@
 import mysql.connector
 import os
+from mysql.connector.constants import flag_is_set
 import requests, json
 from decouple import config
 
@@ -90,9 +91,40 @@ class order:
             return {"Status":True}
         except IndexError:
             return {"Status":False}
+    def check_latitude(lat):
+        db = order.connect()
+        mycursor = db.cursor()
+        while True:
+            mycursor.execute("SELECT * FROM deliveries WHERE Latitude LIKE %s",(lat,))
+            data = mycursor.fetchall()
+            if len(data)==0:
+                mycursor.close()
+                db.close()
+                return  lat
+            else:
+                lat = str(lat)
+                lat = list(lat)
+                lat[-1] = str(int(lat[-1])+1)
+                lat = float("".join(map(str, lat)))
+                #return lat
+    def check_longitude(long):
+        db = order.connect()
+        mycursor = db.cursor()
+        while True:
+            mycursor.execute("SELECT * FROM deliveries WHERE longitude LIKE %s",(long,))
+            data = mycursor.fetchall()
+            if len(data)==0:
+                mycursor.close()
+                db.close()
+                return  long
+            else:
+                long = str(long)
+                long = list(long)
+                long[-1] = str(int(long[-1])+1)
+                long = float("".join(map(str, long)))
     
 
-#print(order.validate_address("452 Savoline Blvd Milton Ontario"))
+#print(order.check_longitude(-79.8437))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328fcacfjkcfjnkfjkfj cda cs x","Box",15,"I need this box delivered ASAP"))
 #print(order.add_order('Eshal Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
