@@ -35,7 +35,15 @@ class order:
             a = data['features'][0]['geometry']['coordinates']
             lat = a[-1]
             lon = a[0]
-            mycursor.execute("INSERT INTO deliveries (Username,Address,Latitude,longitude,Item,Price,User_Info) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Username,Address,lat,lon,Item,Price,User_Info))
+            lat = str(lat)
+            index = lat.index(".")
+            lat = float(lat[0:index+5])
+            lon = str(lon)
+            index = lon.index(".")
+            lon = float(lon[0:index+5])
+            lat = order.check_latitude(lat)
+            lon = order.check_longitude(lon)
+            mycursor.execute("INSERT INTO deliveries (Username,Address,Latitude,longitude,Item,Price,User_Info) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Username,Address,float(lat),float(lon),Item,Price,User_Info))
             db.commit()
             mycursor.close()
             db.close()
@@ -127,4 +135,4 @@ class order:
 #print(order.check_longitude(-79.8437))
 #print(order.get_order_specific_person('Eshal Taiseer'))
 #print(order.add_order("Yassa Taiseer","1328fcacfjkcfjnkfjkfj cda cs x","Box",15,"I need this box delivered ASAP"))
-#print(order.add_order('Eshal Taiseer', '452 Savoline Blvd Milton,', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
+#print(order.add_order('Yassa Taiseer', '1326 Whitney Terrace Milton Ontario', 'Toy', 15, 'I need this toy delivered ASAP my phone number is 123-456-789'))
