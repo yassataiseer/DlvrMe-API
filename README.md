@@ -53,7 +53,7 @@ db.create_all()
  ```
 OR run this terminal script:
 ```py
-python
+
 from models import db
 db.create_all()
 ````
