@@ -2,3 +2,4 @@
 /.env
 /test.dart
 /test.py
+/db_model.py
