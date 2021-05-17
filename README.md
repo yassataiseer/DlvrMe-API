@@ -44,6 +44,18 @@ The user's table will look like this:
 | Price | FLOAT |
 | User_info | VARCHAR |
 
+#### How to Build:
+First make Schema called dlvrme
+Next run ``` models.py ```
+In order to run you can either write in the file this line:
+```python db.create_all()```
+OR run this terminal script:
+```
+python
+from models import db
+db.create_all()
+````
+
 ## Environment Variables
 In order for the database to move smoothly environment variables must be generated.
 Generate a folder called ``` .env ```

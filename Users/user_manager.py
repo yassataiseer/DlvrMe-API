@@ -68,6 +68,6 @@ class user:
         else:
             return  True
 
-#boolean = user("Eshal Taiseer","Eshal123")
-#print(boolean.delete_user())
+#boolean = user("Yassa Taiseer","yassa123")
+#print(boolean.add_user())
 
