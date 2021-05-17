@@ -48,9 +48,11 @@ The user's table will look like this:
 First make Schema called dlvrme
 Next run ``` models.py ```
 In order to run you can either write in the file this line:
-```python db.create_all()```
+```py 
+db.create_all()
+ ```
 OR run this terminal script:
-```
+```py
 python
 from models import db
 db.create_all()
