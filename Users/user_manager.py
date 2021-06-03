@@ -4,7 +4,12 @@ from dotenv import load_dotenv
 from decouple import config
 from hashlib import sha256
 from flask_sqlalchemy import SQLAlchemy
+import sys
+import os.path
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
+import models
 class user:
     def __init__(self,username,password):
         self.username =  username
