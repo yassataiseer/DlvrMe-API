@@ -45,18 +45,9 @@ class user:
 
         
     def check_if_user_exists(self):
-        db = user.connect()
-        mycursor = db.cursor()
-        mycursor.execute("SELECT Username FROM user WHERE Username = (%s) ",(self.username,))
-        data = mycursor.fetchall()
-        mycursor.close()
-        db.close()
-        if len(data)==0:
-            return  False
-        else:
-            return  True
+        exists = bool(db.session.query(User).filter_by(Username=self.username).first())
+        return exists
 
 #boolean = user("Yassa Taiseer","yassa123")
-#print(boolean.add_user())
+#print(boolean.check_if_user_exists())
 #print(boolean.delete_user())
-
