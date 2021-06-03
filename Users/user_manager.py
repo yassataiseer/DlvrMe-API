@@ -3,9 +3,7 @@ import os
 from dotenv import load_dotenv
 from decouple import config
 from hashlib import sha256
-
-
-
+from flask_sqlalchemy import SQLAlchemy
 
 class user:
     def __init__(self,username,password):

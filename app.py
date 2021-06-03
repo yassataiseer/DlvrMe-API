@@ -6,6 +6,7 @@ import os
 #from order_manager import order
 from Users.user_template import user_template
 from Orders.order_template import order_template
+from models import User
 app = Flask(__name__)
 api = Api(app)
 app.register_blueprint(user_template,url_prefix="/Users")
