@@ -28,18 +28,9 @@ class user:
         db.session.commit()
         return {"Status" : True}
     def delete_user(self):
-        db = user.connect()
-        mycursor = db.cursor()
-        boolean = user.check_user(self)
-        if boolean == {"Status" : False}:
-            return {"Status" : False}
-        mycursor.execute("DELETE FROM User WHERE Username = %s ",(self.username,))
-        mycursor.execute("DELETE FROM deliveries WHERE Username = %s",(self.username,))
-        db.commit()
-        mycursor.close()
-        db.close()
+        User.query.filter_by(Username=self.username).delete()
+        db.session.commit()
         return {"Status": True}
-
     def check_user(self):
         db = user.connect()
         mycursor = db.cursor()
@@ -67,4 +58,5 @@ class user:
 
 #boolean = user("Yassa Taiseer","yassa123")
 #print(boolean.add_user())
+#print(boolean.delete_user())
 
