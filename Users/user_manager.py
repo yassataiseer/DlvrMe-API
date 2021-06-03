@@ -9,7 +9,7 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-from models import User
+from models import User,db
 class user:
     def __init__(self,username,password):
         self.username =  username
@@ -23,15 +23,9 @@ class user:
         database = config('DATABASE'))
         return db 
     def add_user(self):
-        db = user.connect()
-        mycursor = db.cursor()
-        boolean = user.check_if_user_exists(self)
-        if boolean == True:
-            return {"Status" : False}
-        mycursor.execute("INSERT INTO user (Username,Password) VALUES (%s,%s)",(self.username,self.password))
-        db.commit()
-        mycursor.close()
-        db.close()
+        query = User(Username=self.username,Password=self.password)
+        db.session.add(query)
+        db.session.commit()
         return {"Status" : True}
     def delete_user(self):
         db = user.connect()
