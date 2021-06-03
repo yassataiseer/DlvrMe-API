@@ -9,7 +9,7 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-import models
+from models import User
 class user:
     def __init__(self,username,password):
         self.username =  username
