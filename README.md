@@ -1,4 +1,3 @@
-![Actions Workflow](https://github.com/yassataiseer/DlvrMe-API/workflows/Flask/badge.svg)
 
 # DlvrMe-API
 
