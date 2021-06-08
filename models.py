@@ -2,16 +2,9 @@ from typing import ItemsView
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import  pymysql
-from decouple import config
+#app = Flask(__name__)
 
-host = config('HOST') 
-user = config('USERNAME') 
-passwd = config('PASSWORD')
-database = config('DATABASE')
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+user+':'+passwd+'@'+host+'/'+database
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 
 class User(db.Model):
