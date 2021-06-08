@@ -16,6 +16,7 @@ class user:
         self.password = sha256(password.encode('utf-8')).hexdigest()
 
     def connect():
+        ##debugging function
         db =mysql.connector.connect(
         host = config('HOST') ,
         user = config('USERNAME') ,
