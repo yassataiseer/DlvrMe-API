@@ -1,4 +1,5 @@
 # DlvrMe-API
+![Actions Workflow](https://github.com/po5i/flask-mini-tests/workflows/data/badge.svg)
 This is the backend code for the DlvrMe project the frontend of the mobile app can be found 
 here: https://github.com/yassataiseer/DlvrMe-Mobile
 ### Tech Stack:
