@@ -1,3 +1,4 @@
+name: Status
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
