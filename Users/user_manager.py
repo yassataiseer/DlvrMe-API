@@ -14,6 +14,7 @@ class user:
     def __init__(self,username,password):
         self.username =  username
         self.password = sha256(password.encode('utf-8')).hexdigest()
+        #convert to sha256 for user's privacy
 
     def connect():
         ##debugging function
@@ -28,6 +29,7 @@ class user:
             query = User(Username=self.username,Password=self.password)
             db.session.add(query)
             db.session.commit()
+            #add user to db
             return {"Status" : True}
         except:
             return {"Status" : False}
@@ -35,15 +37,19 @@ class user:
         try:
             User.query.filter_by(Username=self.username).delete()
             db.session.commit()
+            #delete user from db
             return {"Status": True}
         except:
             return {"Status":False}
     def check_user(self):
         exists = bool(db.session.query(User).filter_by(Username=self.username,Password=self.password).first())
+        #check to see if user exists inside of database
+        #meant to validate user
         return {"Status" : exists}
         
     def check_if_user_exists(self):
         exists = bool(db.session.query(User).filter_by(Username=self.username).first())
+        #check to see if the Username is already taken.
         return exists
 
 #boolean = user("Yassa Taiseer","yassa123")
