@@ -23,14 +23,20 @@ class user:
         database = config('DATABASE'))
         return db 
     def add_user(self):
-        query = User(Username=self.username,Password=self.password)
-        db.session.add(query)
-        db.session.commit()
-        return {"Status" : True}
+        try:
+            query = User(Username=self.username,Password=self.password)
+            db.session.add(query)
+            db.session.commit()
+            return {"Status" : True}
+        except:
+            return {"Status" : False}
     def delete_user(self):
-        User.query.filter_by(Username=self.username).delete()
-        db.session.commit()
-        return {"Status": True}
+        try:
+            User.query.filter_by(Username=self.username).delete()
+            db.session.commit()
+            return {"Status": True}
+        except:
+            return {"Status":False}
     def check_user(self):
         db = user.connect()
         mycursor = db.cursor()
@@ -48,6 +54,6 @@ class user:
         exists = bool(db.session.query(User).filter_by(Username=self.username).first())
         return exists
 
-#boolean = user("Yassa Taiseer","yassa123")
-#print(boolean.check_if_user_exists())
+boolean = user("Yassa Taiseer","yassa123")
+print(boolean.add_user())
 #print(boolean.delete_user())
