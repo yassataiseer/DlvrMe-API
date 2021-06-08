@@ -8,10 +8,11 @@ def test_index(app, client):
     res = client.get('/')
     assert res.status_code == 404
 
-def test_Users(app, client):
+
+def test_delete(app, client):
     del app
     valid_credentials = base64.b64encode(b"Yassa Taiseer:yassa123").decode("utf-8")
-    res = client.get('/Users/mk_user/Fake_name/fake_password',headers={"Authorization": "Basic " + valid_credentials})
+    res = client.get('/Users/delete_user/Fake_name/fake_password',headers={"Authorization": "Basic " + valid_credentials})
     print(res)
     assert res.status_code == 200
     expected = { "Status": True }
