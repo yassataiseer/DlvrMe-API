@@ -38,22 +38,13 @@ class user:
         except:
             return {"Status":False}
     def check_user(self):
-        db = user.connect()
-        mycursor = db.cursor()
-        mycursor.execute("SELECT Username FROM user WHERE Username = (%s) AND Password = (%s) ",(self.username,self.password))
-        data = mycursor.fetchall()
-        mycursor.close()
-        db.close()
-        if len(data)==0:
-            return {"Status" : False}
-        else:
-            return {"Status" : True}
-
+        exists = bool(db.session.query(User).filter_by(Username=self.username,Password=self.password).first())
+        return {"Status" : exists}
         
     def check_if_user_exists(self):
         exists = bool(db.session.query(User).filter_by(Username=self.username).first())
         return exists
 
-boolean = user("Yassa Taiseer","yassa123")
-print(boolean.add_user())
+#boolean = user("Yassa Taiseer","yassa123")
+#print(boolean.check_user())
 #print(boolean.delete_user())
