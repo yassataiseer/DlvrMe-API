@@ -1,5 +1,7 @@
-# DlvrMe-API
 ![Actions Workflow](https://github.com/yassataiseer/DlvrMe-API/workflows/Flask/badge.svg)
+
+# DlvrMe-API
+
 This is the backend code for the DlvrMe project the frontend of the mobile app can be found 
 here: https://github.com/yassataiseer/DlvrMe-Mobile
 ### Tech Stack:
