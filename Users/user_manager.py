@@ -25,22 +25,19 @@ class user:
         database = config('DATABASE'))
         return db 
     def add_user(self):
-        try:
-            query = User(Username=self.username,Password=self.password)
-            db.session.add(query)
-            db.session.commit()
-            #add user to db
-            return {"Status" : True}
-        except:
-            return {"Status" : False}
+
+        query = User(Username=self.username,Password=self.password)
+        db.session.add(query)
+        db.session.commit()
+        #add user to db
+        return {"Status" : True}
+
     def delete_user(self):
-        try:
-            User.query.filter_by(Username=self.username).delete()
-            db.session.commit()
-            #delete user from db
-            return {"Status": True}
-        except:
-            return {"Status":False}
+        User.query.filter_by(Username=self.username).delete()
+        db.session.commit()
+        #delete user from db
+        return {"Status": True}
+
     def check_user(self):
         exists = bool(db.session.query(User).filter_by(Username=self.username,Password=self.password).first())
         #check to see if user exists inside of database
