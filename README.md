@@ -13,7 +13,7 @@ here: https://github.com/yassataiseer/DlvrMe-Mobile
 
 ### Installation
 Requires python 3
-Requires Flutter
+Requires Flutter(For Mobile Frontend)
 Android Studio
 #### Mac& Linux(Rest-Api):
 ```sh
@@ -62,7 +62,7 @@ db.create_all()
 
 ## Environment Variables
 In order for the database to move smoothly environment variables must be generated.
-Generate a folder called ``` .env ```
+Generate a file called ``` .env ```
 After this fill out the fold with this data:
 ```.env
 HOST=YOUR_HOST
