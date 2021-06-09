@@ -15,6 +15,11 @@ here: https://github.com/yassataiseer/DlvrMe-Mobile
 Requires python 3
 Requires Flutter(For Mobile Frontend)
 Android Studio
+#### Module Downloads:
+There are many dependencies for DlvrMe which can be downloaded via this command:
+Windows:```pip3 install -r requirements.txt```
+Mac&Linux:```pip install -r requirements.txt```
+
 #### Mac& Linux(Rest-Api):
 ```sh
 python3 app.py
