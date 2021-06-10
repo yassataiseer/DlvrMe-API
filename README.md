@@ -13,8 +13,13 @@ here: https://github.com/yassataiseer/DlvrMe-Mobile
 
 ### Installation
 Requires python 3
-Requires Flutter
+Requires Flutter(For Mobile Frontend)
 Android Studio
+#### Module Downloads:
+There are many dependencies for DlvrMe which can be downloaded via this command:
+Windows:```pip3 install -r requirements.txt```
+Mac&Linux:```pip install -r requirements.txt```
+
 #### Mac& Linux(Rest-Api):
 ```sh
 python3 app.py
@@ -62,7 +67,7 @@ db.create_all()
 
 ## Environment Variables
 In order for the database to move smoothly environment variables must be generated.
-Generate a folder called ``` .env ```
+Generate a file called ``` .env ```
 After this fill out the fold with this data:
 ```.env
 HOST=YOUR_HOST
