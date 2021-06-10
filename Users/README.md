@@ -1,7 +1,6 @@
 # User's Package
 Here is all the code regarding login related affairs.
 All code is directly related to the Users table in our MySQL db as well.
-### Tech Stack:
 |FileName| Purpose |
 | ------ | ------ |
 | user_template.py | Extends routes from app.py regarding Users such as making and deleting users |
