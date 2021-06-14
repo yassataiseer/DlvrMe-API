@@ -25,11 +25,12 @@ class user:
         database = config('DATABASE'))
         return db 
     def add_user(self):
-
-        query = User(Username=self.username,Password=self.password)
-        db.session.add(query)
-        db.session.commit()
-        #add user to db
+        if check_if_user_exists:
+            query = User(Username=self.username,Password=self.password)
+            db.session.add(query)
+            db.session.commit()
+            #add user to db
+            return {"Status" : True}
         return {"Status" : True}
 
     def delete_user(self):
