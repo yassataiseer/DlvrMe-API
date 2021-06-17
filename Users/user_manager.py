@@ -10,6 +10,7 @@ sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 from models import User,db
+
 class user:
     def __init__(self,username,password):
         self.username =  username
@@ -25,13 +26,13 @@ class user:
         database = config('DATABASE'))
         return db 
     def add_user(self):
-        if check_if_user_exists:
+        if not user.check_if_user_exists(self):
             query = User(Username=self.username,Password=self.password)
             db.session.add(query)
             db.session.commit()
             #add user to db
             return {"Status" : True}
-        return {"Status" : True}
+        return {"Status" : False}
 
     def delete_user(self):
         User.query.filter_by(Username=self.username).delete()
