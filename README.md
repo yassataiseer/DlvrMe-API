@@ -2,7 +2,7 @@
 # DlvrMe-API
 
 This is the backend code for the DlvrMe project the frontend of the mobile app can be found 
-here: https://github.com/yassataiseer/DlvrMe-Mobile
+[here](https://github.com/yassataiseer/DlvrMe-Mobile)
 ### Tech Stack:
 |Library/Framework| Purpose |
 | ------ | ------ |
@@ -81,6 +81,11 @@ DATABASE=DATABASE_NAME
 ## Testing Code:
 Before opening a pull request make sure your code is tested, instructions 
 in order to test your code can be found [here](https://github.com/yassataiseer/DlvrMe-API/tree/master/tests).
+
+
+
+## Running Docker-:
+Instructions will be here soon
 
 ### Open Sourcing Guidelines
 Read ```CODE_OF_CONDUCT.md``` for proper rules
