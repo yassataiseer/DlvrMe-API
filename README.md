@@ -84,8 +84,24 @@ in order to test your code can be found [here](https://github.com/yassataiseer/D
 
 
 
-## Running Docker-:
-Instructions will be here soon
+## Running Docker:
+Make sure the latest version of docker is installed on your system.
+Run the following:
+```Dockerfile
+sudo docker build -t <CONTAINER_NAME> .
+sudo docker run -d -p 5000:5000 CONTAINER_NAME
+ ```
+Now find the container ID by running this script and copying the ID OR Name of container
+```Dockerfile
+sudo docker ps -a
+```
+Then run:
+```Dockerfile
+sudo docker logs <CONTAINER ID OR CONTAINER NAME>
+```
+Now check to see if it works
+NOTE: Make sure your database is running on the same host as the app itself
+For more info check [here](https://docs.docker.com/)
 
 ### Open Sourcing Guidelines
 Read ```CODE_OF_CONDUCT.md``` for proper rules
