@@ -20,6 +20,8 @@ app.register_blueprint(user_template,url_prefix="/Users")
 app.register_blueprint(order_template,url_prefix="/Orders")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+user+':'+passwd+'@'+host+'/'+database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 db.init_app(app)
 
 
