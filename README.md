@@ -3,6 +3,13 @@
 
 This is the backend code for the DlvrMe project the frontend of the mobile app can be found 
 [here](https://github.com/yassataiseer/DlvrMe-Mobile)
+## Table of Contents:
+- [Tech Stack](#tech-stack)
+- [Installation](#Installation)
+- [Building Database](#Building-Database)
+- [Testing](#Testing-Code)
+- [Docker](#Running-Docker)
+
 ### Tech Stack:
 |Library/Framework| Purpose |
 | ------ | ------ |
