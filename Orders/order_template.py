@@ -1,14 +1,15 @@
 from flask import Flask, jsonify,Blueprint
 from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
-from Orders.order_manager import order
+from Orders.order_manager import order##import order package
 from flask_httpauth import HTTPBasicAuth
 
 
 
-order_template = Blueprint("order_template",__name__)
+order_template = Blueprint("order_template",__name__)## extends app.py
 
 api = Api(order_template)
 auth = HTTPBasicAuth()
+
 USER_DATA = {
     "Yassa Taiseer": "yassa123"
 }
@@ -17,7 +18,10 @@ def verify(username, password):
     if not (username and password):
         return False
     return USER_DATA.get(username) == password
+# Setup of basic auth
+
 """Orders"""
+## when order.function() the order_manager.py is called
 class mk_order(Resource):
     @auth.login_required
     def get(self,Username,Address,Item,Price,User_Info):
@@ -49,6 +53,7 @@ class validate_address(Resource):
         status = order.validate_address(Address)
         return jsonify(status)
 
+## api routes
 api.add_resource(mk_order,"/mk_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
 api.add_resource(del_order,"/del_order/<string:Username>/<string:Address>/<string:Item>/<float:Price>/<string:User_Info>")
 api.add_resource(all_order,"/all_order")
