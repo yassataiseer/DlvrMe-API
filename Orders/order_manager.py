@@ -8,6 +8,7 @@ from decouple import config
 
 class order:
     def connect():
+        #connect to mysql db
         db =mysql.connector.connect(
         host = config('HOST') ,
         user = config('USERNAME') ,
@@ -15,6 +16,7 @@ class order:
         database = config('DATABASE'))
         return db 
     def delete_order(Username,Address,Item,Price,User_Info):
+        ## delete order from order table
         db = order.connect()
         mycursor = db.cursor()
         Price1 = float(Price)
@@ -24,10 +26,12 @@ class order:
         db.close()
         return {"Status":True}
     def add_order(Username,Address,Item,Price,User_Info):
+        ## add order to order table
         db = order.connect()
         mycursor = db.cursor()
         try:
             url = 'http://photon.komoot.de/api/?q='
+            ## call open source api to get coordinatates
             mycursor.execute('SELECT * FROM deliveries')
             data = mycursor.fetchall()
             resp = requests.get(url=url+Address)
@@ -52,8 +56,11 @@ class order:
             db.close()
             return {"Status":False}
     def edit_order(Username,Address,Item,Price,User_Info):
+        ##way to lazy to implement this feature rn
         pass
     def get_order():
+        ## grab al orders from database
+        ## meant for maps
         db = order.connect()
         mycursor = db.cursor()
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
@@ -65,8 +72,10 @@ class order:
             data1.append(i)
         mycursor.close()
         db.close()
-        return data1
+        return data1 ## return as dictionaries
     def get_order_specific_person(username):
+        ## get orders of specific person
+        ## meant in order for user to view their orders
         db = order.connect()
         mycursor = db.cursor()
         data = ["Name","Address","Latitude","Longitude","Item","Price","Description"]
@@ -80,6 +89,7 @@ class order:
         db.close()
         return final
     def grab_address(Address):
+        ## grab address to check to see if it is currently occupied
         db = order.connect()
         mycursor = db.cursor()
         mycursor.execute("SELECT * FROM deliveries WHERE Address = %s",(Address,))
@@ -91,6 +101,7 @@ class order:
         else:
             return  {"Status":True}
     def validate_address(address):
+        ## check to see if the address real
         try:
             url = 'http://photon.komoot.de/api/?q='
             resp = requests.get(url=url+address)
@@ -100,6 +111,8 @@ class order:
         except IndexError:
             return {"Status":False}
     def check_latitude(lat):
+        ##check to see if the latitudes exist
+        ## if they do modify them by a bit
         db = order.connect()
         mycursor = db.cursor()
         while True:
@@ -116,6 +129,8 @@ class order:
                 lat = float("".join(map(str, lat)))
                 #return lat
     def check_longitude(long):
+        ##check to see if the longitude exist
+        ## if they do modify them by a bit
         db = order.connect()
         mycursor = db.cursor()
         while True:
