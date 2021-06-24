@@ -20,8 +20,14 @@ app.register_blueprint(user_template,url_prefix="/Users")
 app.register_blueprint(order_template,url_prefix="/Orders")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+user+':'+passwd+'@'+host+'/'+database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
-app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
+#app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
+#app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_recycle': 299,
+    'pool_timeout': 20,
+    'pool_size': 10,
+    'max_overflow': 5,
+}
 db.init_app(app)
 
 
