@@ -30,7 +30,7 @@ class order:
         db = order.connect()
         mycursor = db.cursor()
         try:
-            url = 'http://photon.komoot.de/api/?q='
+            url = 'http://photon.komoot.io/api/?q='
             ## call open source api to get coordinatates
             mycursor.execute('SELECT * FROM deliveries')
             data = mycursor.fetchall()
@@ -103,7 +103,7 @@ class order:
     def validate_address(address):
         ## check to see if the address real
         try:
-            url = 'http://photon.komoot.de/api/?q='
+            url = 'http://photon.komoot.io/api/?q='
             resp = requests.get(url=url+address)
             data = json.loads(resp.text)
             a = data['features'][0]['geometry']['coordinates']
